@@ -133,7 +133,9 @@ fun MainScreen1(
 ) {
 
 
-
+    var isVisible by remember {
+        mutableStateOf(false)
+    }
     val images = listImage
     val words = list
     val phases =listGrande
@@ -248,8 +250,12 @@ fun MainScreen1(
                 Text("<-")
             }
 
+            ElevatedCard(destaque,180,isVisible)
 
-           ElevatedCard(destaque,180)
+
+
+
+
 
 
 
@@ -273,6 +279,9 @@ fun MainScreen1(
         }
 
         Spacer(modifier = Modifier.height(9.dp))
+
+
+
         AsyncImage(
             model = ImageRequest.Builder(context = LocalContext.current)
                 .data(images[0])
@@ -299,6 +308,16 @@ fun MainScreen1(
             }
 
 
+            Button(onClick = {
+
+
+                isVisible=!isVisible
+
+
+            }) {
+
+                Text("show")
+            }
 
 
 
@@ -389,7 +408,7 @@ private fun dropDown(
 }
 
 @Composable
-fun ElevatedCard(text: AnnotatedString, heightPass: Int) {
+fun ElevatedCard(text: AnnotatedString, heightPass: Int, isVisible : Boolean) {
     androidx.compose.material3.ElevatedCard(
         elevation = CardDefaults.cardElevation(
             defaultElevation = 6.dp
@@ -397,12 +416,17 @@ fun ElevatedCard(text: AnnotatedString, heightPass: Int) {
         modifier = Modifier
             .size(width = 240.dp, height = heightPass.dp)
     ) {
-        Text(
-            text = text,
-            modifier = Modifier
-                .padding(16.dp),
-            textAlign = TextAlign.Center,
-        )
+        if(isVisible){
+
+            Text(
+                text = text,
+                modifier = Modifier
+                    .padding(16.dp),
+                textAlign = TextAlign.Center,
+            )
+
+        }
+
     }
 }
 
