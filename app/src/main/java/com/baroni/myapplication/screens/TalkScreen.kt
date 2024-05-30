@@ -71,12 +71,7 @@ fun TalkScreen(
     RestaurantsRepository().getRestaurant(restaurantName!!)
         ?.let { restaurant ->
 
-
-            MainScreen1(list = restaurant.word, listGrande = restaurant.prhase, listImage = restaurant.images )
-
-
-
-
+            MainScreen1(list = restaurant.word, listGrande = restaurant.phrase, listImage = restaurant.images )
 
                 Column (
                     modifier = Modifier.fillMaxSize(),
