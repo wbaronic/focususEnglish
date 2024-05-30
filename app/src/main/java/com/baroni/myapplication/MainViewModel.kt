@@ -18,9 +18,6 @@ class MainViewModel:ViewModel() {
     private val _state = mutableStateOf(MainScreenState())
     val state: State<MainScreenState> = _state
     private  var  textToSpeech:TextToSpeech? = null
-
-
-
     var state2 by mutableStateOf(MainScreenState())
         private set
 
@@ -31,11 +28,6 @@ class MainViewModel:ViewModel() {
             )
         }
     }
-
-
-
-
-
 
     fun onTextFieldValueChange(text:String){
         _state.value = state.value.copy(
@@ -81,8 +73,6 @@ class MainViewModel:ViewModel() {
             )
         }
     }
-
-
 
     fun textToSpeech(context: Context){
         _state.value = state.value.copy(
