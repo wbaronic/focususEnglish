@@ -16,7 +16,7 @@ class SpeechRecognizerContract :ActivityResultContract<Unit,ArrayList<String>?>(
             RecognizerIntent.LANGUAGE_MODEL_WEB_SEARCH)
         intent.putExtra(
             RecognizerIntent.EXTRA_LANGUAGE,
-            Locale.US
+            Locale.US.toString()
         )
         intent.putExtra(
             RecognizerIntent.EXTRA_PROMPT,
